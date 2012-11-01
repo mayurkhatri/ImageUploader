@@ -1,0 +1,17 @@
+<p>
+  <b>Commenter:</b>
+  <%= comment.uploadedby %>
+</p>
+ 
+<p>
+  <b>Comment:</b>
+  <%= comment.body %>
+</p>
+
+<p>
+  <%if user_signed_in?%>
+    <%= link_to 'Destroy Comment', [comment.image, comment],
+                :confirm => 'Are you sure?',
+                :method => :delete %>
+ <%end%>
+</p>

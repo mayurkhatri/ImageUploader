@@ -15,16 +15,22 @@ Imageuploader::Application.routes.draw do
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
   resources :image do
+    resources :comment do
+      collection do
+        post 'create_comment'
+      end
+    end
     collection do
       get 'upload'
-    end
-  end
-
-  resources :image do
-    collection do
       post 'upload_post'
     end
   end
+
+#  resources :image do
+#    collection do
+#      post 'upload_post'
+#    end
+#  end
 
   # Sample resource route with options:
   #   resources :products do

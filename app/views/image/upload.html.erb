@@ -1,17 +1,18 @@
-<%= form_for @image,url: upload_post_image_index_path do |form| %>
+<%= form_for @image,url: upload_post_image_index_path, :html => {:multipart => true } do |form| %>
   <p>
   <%= form.label :title %>
   <%= form.text_field :title %>
   </p>
 
-  <p>
-    <%= form.label "Upload"%>
-    <%= form.file_field :avatar%>
-  </p>
 
   <p>
     <%= form.label :uploadedby,"Uploaded by"%>
-    <%= form.text_field :uploadedby%>
+    <%= form.text_field :uploadedby, :readonly => true%>
     </p>
+  <p>
+    <%= form.label "Upload"%>
+    <%= form.file_field :avatar %>
+  </p>
+
   <p><%= form.submit %></p>
 <% end %>

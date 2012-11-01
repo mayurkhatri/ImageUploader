@@ -25,6 +25,8 @@ gem 'devise'
 gem 'mysql2'
 gem 'haml'
 gem 'carrierwave'
+gem 'rmagick'
+gem 'ajaxful_rating'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

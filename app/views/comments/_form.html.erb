@@ -1,0 +1,13 @@
+<%= form_for([@image, @image.comments.build], url: create_comment_image_comment_index_path(@image.id)) do |f| %>
+  <div class="field">
+    <%= f.label :uploadedby, "Commented by"  %><br />
+    <%= f.text_field :uploadedby %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
