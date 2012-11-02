@@ -1,7 +1,7 @@
 <%= form_for([@image, @image.comments.build], url: create_comment_image_comment_index_path(@image.id)) do |f| %>
   <div class="field">
-    <%= f.label :uploadedby, "Commented by"  %><br />
-    <%= f.text_field :uploadedby %>
+    <%= f.label :commentedby, "Commented by"  %><br />
+    <%= f.text_field :commentedby %>
   </div>
   <div class="field">
     <%= f.label :body %><br />

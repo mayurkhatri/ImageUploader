@@ -29,7 +29,6 @@ before_filter :authenticate_user!, :except => [:index, :show]
 
   def upload
     @image = Image.new
-    @image.uploadedby = current_user.email
     respond_to do |format|
       format.html
       format.json { render json: @image }
@@ -39,13 +38,21 @@ before_filter :authenticate_user!, :except => [:index, :show]
   def upload_post
     @image = Image.new
     @image.title = params[:image][:title]
-    @image.uploadedby = params[:image][:uploadedby]
     @image.avatar = params[:image][:avatar]
+    @image.user_id = current_user.id
     @image.save!
 
     @images = Image.all
     respond_to do |format|
         format.html { render "index" }
+    end
+  end
+
+  def my_images
+    @images = Image.find(:all, conditions: ['user_id = ?', current_user.id])
+
+    respond_to do |format|
+        format.html { render "myimages" }
     end
   end
 end

@@ -22,6 +22,7 @@ Imageuploader::Application.routes.draw do
     end
     collection do
       get 'upload'
+      get 'my_images'
       post 'upload_post'
     end
   end

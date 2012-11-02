@@ -1,10 +1,4 @@
-<div id="imagegallery">
-  <%if user_signed_in?%>
-    <%= link_to 'Upload Image', upload_image_index_path%>
-    <%= link_to 'My Images', my_images_image_index_path%>
-  <%end%>
-  <br/>
-  <br/>
+<div id="my_imagegallery">
   <%= @images.sort_by{|t| - t.created_at.to_i}.each do |image|%>
     <div class="image_thumb">
       <%=link_to (image_tag image.avatar_url(:thumb).to_s), image_path(image.id)%>
@@ -13,11 +7,7 @@
      <label>Title :</label>
       <%= image.title %>
     </div>
-    <div class="image_uploadedby">
-     <label>Uploaded by :</label>
-      <%= image.user.email %>
-    </div>
-    <div class="image_uploadedby">
+    <div class="image_uploadedon">
      <label>Uploaded on :</label>
       <%= image.created_at %>
     </div>
