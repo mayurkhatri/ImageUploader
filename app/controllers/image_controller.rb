@@ -8,7 +8,6 @@ before_filter :authenticate_user!, :except => [:index, :show]
   end
 
   def create
-    debugger
     @image = Image.new
     @image.title = params[:image][:title]
     @image.uploadedby = params[:image][:uploadedby]
@@ -38,7 +37,6 @@ before_filter :authenticate_user!, :except => [:index, :show]
   end
 
   def upload_post
-    debugger
     @image = Image.new
     @image.title = params[:image][:title]
     @image.uploadedby = params[:image][:uploadedby]
