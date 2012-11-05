@@ -1,26 +1,52 @@
-<div id="imagegallery">
+<div class="container">
   <%if user_signed_in?%>
-    <%= link_to 'Upload Image', upload_image_index_path%>
-    <%= link_to 'My Images', my_images_image_index_path%>
+    <div class="row-fluid">
+        <div class="span2">   <strong> <%= link_to 'Upload Image', upload_image_index_path%></strong></div>
+        <div class="span2"> <strong><%= link_to 'My Images', my_images_image_index_path%></strong></div>
+    </div>
   <%end%>
+
   <br/>
   <br/>
   <%= @images.sort_by{|t| - t.created_at.to_i}.each do |image|%>
     <div class="image_thumb">
       <%=link_to (image_tag image.avatar_url(:thumb).to_s), image_path(image.id)%>
     </div>
-    <div class="image_title">
-     <label>Title :</label>
-      <%= image.title %>
+
+
+    <div class="row-fluid">
+    <div class="span6">
+      <div class="span3">
+        <span class="label">Title :</span>
+      </div>
+      <div class="span3">
+        <%= image.title %>
+      </div>
     </div>
-    <div class="image_uploadedby">
-     <label>Uploaded by :</label>
-      <%= image.user.email %>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="span3">
+      <span class="label">Uploaded by :</span>
+      </div>
+      <div class="span3">
+        <%= image.user.email %>
+     </div>
     </div>
-    <div class="image_uploadedby">
-     <label>Uploaded on :</label>
-      <%= image.created_at %>
+  </div>
+
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="span3">
+       <span class="label">Uploaded on :</span>
+      </div>
+      <div class="span3">
+       <%= image.created_at %>
+      </div>
     </div>
-    <br/>
+  </div>
+
+  <br/>
 <%end%>
 <div/>

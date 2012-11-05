@@ -1,15 +1,31 @@
+<h2>My Images</h2>
+<br/>
 <div id="my_imagegallery">
   <%= @images.sort_by{|t| - t.created_at.to_i}.each do |image|%>
     <div class="image_thumb">
       <%=link_to (image_tag image.avatar_url(:thumb).to_s), image_path(image.id)%>
     </div>
-    <div class="image_title">
-     <label>Title :</label>
-      <%= image.title %>
+    <div class="row-fluid">
+      <div class="span6">
+        <div class="span3">
+          <span class="label">Title :</span>
+        </div>
+        <div class="span3">
+          <%= image.title %>
+        </div>
+     </div>
     </div>
-    <div class="image_uploadedon">
-     <label>Uploaded on :</label>
-      <%= image.created_at %>
+    <div class="row-fluid">
+      <div class="span6">
+        <div class="span3">
+          <span class="label">Uploaded on :</span>
+        </div>
+        <div class="span3">
+        <div class="span3">
+          <%= image.created_at %>
+        </div>
+        </div>
+      </div>
     </div>
     <br/>
 <%end%>

@@ -1,24 +1,42 @@
   <%if user_signed_in?%>
   <%end%>
-    <div class="image_enlarged">
-      <%=link_to( image_tag @image.avatar_url.to_s)%>
+  <div class="image_enlarged">
+    <%=image_tag @image.avatar_url.to_s%>
+  </div>
+   <div class="row-fluid">
+    <div class="span6">
+      <div class="span3">
+        <span class="label">Title :</span>
+      </div>
+      <div class="span3">
+        <%= @image.title %>
+      </div>
     </div>
-    <div class="image_title">
-     <label>Title :</label>
-      <%= @image.title %>
+  </div>
+   <div class="row-fluid">
+    <div class="span6">
+      <div class="span3">
+        <span class="label">Uploaded by :</span>
+      </div>
+      <div class="span3">
+        <%= @image.user.email %>
+      </div>
     </div>
-    <div class="image_uploadedby">
-     <label>Uploaded by :</label>
-      <%= @image.user.email %>
+  </div>
+   <div class="row-fluid">
+    <div class="span6">
+      <div class="span3">
+        <span class="label">Uploaded on :</span>
+      </div>
+      <div class="span3">
+        <%= @image.created_at %>
+      </div>
     </div>
-    <div class="image_uploadedby">
-     <label>Uploaded on :</label>
-      <%= @image.created_at %>
-    </div>
-    <h2>Comments</h2>
+  </div>
+    <h5>Comments</h5>
     <%= render @image.comments %>
  <%if user_signed_in?%>
-  <h2>Add a comment:</h2>
+  <h5>Add a comment:</h5>
   <%= render "comments/form" %>
  <%end%>
     <br/>

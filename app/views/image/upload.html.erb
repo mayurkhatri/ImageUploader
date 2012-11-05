@@ -1,3 +1,8 @@
+<h2>Upload Image</h2>
+<br/>
+<p class="text-info">
+  <small>Please select the image you want to upload</small>
+</p>
 <%= form_for @image,url: upload_post_image_index_path, :html => {:multipart => true } do |form| %>
   <p>
   <%= form.label :title %>
